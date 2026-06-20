@@ -1,0 +1,3 @@
+Replace this folder's resume.pdf with your actual resume file.
+Place a file named exactly "resume.pdf" inside the /public folder so the
+"Download Resume" and "View Resume" buttons work correctly.

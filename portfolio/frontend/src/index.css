@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-body bg-bg-deep text-text-primary transition-colors duration-300;
+  }
+  body.light {
+    @apply bg-bg-light text-text-darkprimary;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  ::selection {
+    background: rgba(139, 92, 246, 0.35);
+  }
+}
+
+@layer components {
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+  body.light .bg-grid {
+    background-image:
+      linear-gradient(rgba(16,19,28,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16,19,28,0.06) 1px, transparent 1px);
+  }
+  .glass {
+    @apply backdrop-blur-xl bg-white/[0.03] border border-white/10;
+  }
+  body.light .glass {
+    @apply bg-white/70 border-black/5;
+  }
+  .eyebrow {
+    @apply font-mono text-xs tracking-[0.25em] uppercase text-accent-cyan;
+  }
+  .section-pad {
+    @apply px-6 md:px-12 lg:px-20 py-24;
+  }
+  .grad-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-violet to-accent-cyan;
+  }
+  .trace-line {
+    @apply absolute left-1/2 top-0 -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-accent-violet/40 to-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0A0E17; }
+::-webkit-scrollbar-thumb { background: #8B5CF6; border-radius: 6px; }
+body.light::-webkit-scrollbar-track { background: #F6F7FB; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
